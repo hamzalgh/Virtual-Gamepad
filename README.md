@@ -6,17 +6,17 @@ Currently a preview for one phone at a time, intended for games that accept Xbox
 
 ## Downloads
 
-Local preview files are prepared for testing but are not included in the source repository:
+There is no public app download attached to this source repository yet. An upload-ready preview package is prepared locally at `dist/preview/VirtualGamepad-Preview.zip`; generated binaries are excluded from Git. To let testers download it, attach that ZIP to a GitHub Release.
 
-- Android APK: `dist/preview/android/VirtualGamepad-Android-Preview.apk`
-- Windows installer: `dist/preview/windows/VirtualGamepad-Windows-Setup-Preview.exe`
+The preview contains a Windows x64 installer and Android APK for testing. The Windows installer is unsigned, and the APK uses the existing Android development certificate. These are preview builds, not official release downloads.
+
 - [Required ViGEmBus driver 1.22.0](https://github.com/nefarius/ViGEmBus/releases/download/v1.22.0/ViGEmBus_1.22.0_x64_x86_arm64.exe)
 
-**Public app downloads are not available yet.** The Windows preview is unsigned; the Android preview uses a development signature.
+The driver is a separate prerequisite and is not bundled in the preview ZIP. Public app downloads and official signing are not available yet.
 
 ## Setup
 
-You need **Android 8 or newer**, a **Windows 10 or 11 PC (64-bit)**, and a trusted private network shared by both devices. The focused Windows 11 startup retest passed; broader Windows coverage remains a release gate.
+You need **Android 8 or newer**, a **Windows 10 or 11 PC (64-bit)**, and a trusted private network shared by both devices. A focused Windows 11 startup retest was reported for a prior preview; retest the current preview before relying on it. Broader Windows coverage remains a release gate.
 
 1. **Install the PC driver.** Run the ViGEmBus installer above and restart if requested. It lets Windows recognise a virtual Xbox controller. Skip this step if the supported driver already works on your PC. ViGEmBus is retired; use its [official archived release](https://github.com/nefarius/ViGEmBus/releases/tag/v1.22.0).
 2. **Install the Windows app.** Run the Virtual Gamepad installer and select its optional Private-network UDP allowance so your phone can connect. Do not enable Public-network access. The driver is installed separately.

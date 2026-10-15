@@ -1,6 +1,10 @@
 # Progress Tracker
 
-Last updated: **2026-10-14**
+Last updated: **2026-10-15**
+
+## Preview artifact refresh (2026-10-15)
+
+The previously ignored preview binaries were built on September 13–14 and predated the October 15 committed PC backend changes, so they were not suitable for another focused test. Rebuilt the Android release payload offline, signed only the local preview copy with the existing Android development/debug key, and verified it retains the prior preview's certificate. Rebuilt the Windows x64 release agent using the installed MSVC toolchain and compiled an unsigned review installer with the hash-verified Inno Setup 6.7.3 compiler. The upload-ready ZIP is `dist/preview/VirtualGamepad-Preview.zip`; its component hashes and source snapshot are recorded in the adjacent manifest and ZIP checksum. These ignored files are not part of Git. Automated checks passed: Gradle `assembleRelease`, 107 Rust tests across all targets, release build, and Inno compilation. Artifact inspection reports Windows signature `NotSigned`, ProductVersion `0.1.0`, and `ReleaseApproved=false`; Android uses the development certificate, not official release signing. The exact rebuilt Windows 11 installer has not been installed or run; perform only the focused startup/error-483 retest in the bundle instructions before relying on this build. No driver, firewall, phone interaction, system setting, public release, commit, or push action occurred.
 
 ## Spec 0010 tested preview acceptance (2026-10-14)
 
