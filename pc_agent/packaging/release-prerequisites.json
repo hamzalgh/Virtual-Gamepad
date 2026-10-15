@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "releaseApproved": false,
+  "spec": "0010",
+  "windows": {
+    "architecture": "x64",
+    "targets": [
+      "Windows 10",
+      "Windows 11"
+    ],
+    "installer": "Inno Setup",
+    "compilerVersion": "6.7.3",
+    "installationId": "VirtualGamepad.Desktop",
+    "installDirectory": "{autopf}\\VirtualGamepad",
+    "runtimeExecutable": "virtual-gamepad-agent.exe",
+    "runtimePrivilege": "asInvoker",
+    "firewall": {
+      "id": "VirtualGamepad.Desktop.UDP",
+      "direction": "Inbound",
+      "action": "Allow",
+      "protocol": "UDP",
+      "profile": "Private",
+      "remoteAddress": "LocalSubnet",
+      "program": "exact installed runtime executable path",
+      "localPort": "validated configured port, default 8765",
+      "requiresExplicitConsent": true
+    },
+    "startup": {
+      "enabledByDefault": false,
+      "owner": "ordinary current user runtime",
+      "registryKey": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "valueName": "VirtualGamepad.Desktop",
+      "arguments": "--tray"
+    },
+    "driver": {
+      "bundle": false,
+      "installerVersion": "1.22.0",
+      "previouslyObservedDriverVersion": "1.21.442.0",
+      "uninstallSharedDriver": false
+    },
+    "uninstall": {
+      "forceKill": false,
+      "requireOwnedAgentExited": true,
+      "preserveUserDataByDefault": true,
+      "deleteOtherUserProfiles": false
+    },
+    "compilerVerifiedForReview": true,
+    "compilerDistributionSha256": "9C73C3BAE7ED48D44112A0F48E66742C00090BDB5BEF71D9D3C056C66E97B732",
+    "compilerSha256": "0A8757031B33777E4C9CBFFEE40F11A5062B36D25CBE144C1DB73B6102B80AD7"
+  },
+  "android": {
+    "applicationId": "com.hamzalgh.virtualgamepad",
+    "createKeyAutomatically": false,
+    "allowDebugKeyForOfficialRelease": false
+  },
+  "publication": {
+    "licenseDecision": "Apache-2.0",
+    "copyrightHolder": "Virtual Gamepad contributors (provisional, user authorized 2026-09-13)",
+    "officialRepository": null,
+    "automaticUpdates": false,
+    "communityForksAreOfficial": false
+  },
+  "pendingGates": [
+    "Installed-path lifecycle and stopped ownership acceptance; focused portable tray/popup/settings checks are user accepted",
+    "Official repository/release identity and final redistribution notice review",
+    "Windows signing certificate/provider, Android release keystore ownership and backups",
+    "Explicit authorization before signing and installation/system actions",
+    "Signed executable/installer/APK verification and physical install/upgrade checks",
+    "Windows 10/11 clean installation, firewall ownership and uninstall evidence",
+    "Formal reliability and broader platform/accessibility evidence"
+  ]
+}

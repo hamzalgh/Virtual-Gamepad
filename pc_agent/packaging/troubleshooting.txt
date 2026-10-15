@@ -1,0 +1,26 @@
+Virtual Gamepad — troubleshooting
+
+Use a trusted private local network. The phone and PC need the same Wi-Fi/LAN. Check the PC's CURRENT Wi-Fi IPv4 before entering a manual address; VPN and virtual adapter addresses may not work. Default UDP port is 8765.
+
+Every connection needs a fresh six-digit code. Pair ends the existing session before opening a popup with large digits and a 120-second countdown. Close, Escape or the popup's X cancels the unused window. Last phone is informational; it never grants automatic admission. Forget/Replace ends the session.
+
+Ready before pairing does not prove driver/firewall setup. Check driver / firewall displays read-only inventory. ViGEmBus is retired: supported upstream installer 1.22.0, observed driver 1.21.442.0. Official archived source: https://github.com/nefarius/ViGEmBus/releases/tag/v1.22.0
+Exact asset: ViGEmBus_1.22.0_x64_x86_arm64.exe (6,278,576 bytes). Expected SHA-256: 89220A7865076B342892F98865F3499FB7C4CFD673159E89D352C360FD014C6A (Microsoft WinGet catalog; the publisher provides no checksum sidecar). Verify the downloaded installer's publisher/signature and hash before any separately authorized installation. No driver is bundled or installed by this app. Never substitute an unverified mirror or broadly open the firewall.
+
+Controller startup failure: open Status and setup details (or type status in the terminal). It shows the failed operation, Windows error number when available, target attempt and whether cleanup also failed. The tray requests one notification per faulted run; Windows may suppress it, so details remain available. A working bus in Device Manager and exchanged packets do not prove that a virtual controller finished starting.
+
+Windows error 483 at wait ready can indicate the driver's one-second controller boot wait expired. It does not establish why the PC failed or mean that the driver is missing. The agent tries one fresh target only after successful neutral/unplug cleanup of the first target. Other errors and failed cleanup stop recovery. It never repeats the boot-event wait on the same target or applies held input to test readiness. Startup and cleanup driver calls are synchronous and can take longer than expected; no fixed completion time is guaranteed.
+
+After a fault, choose Stop, wait for Stopped, then Start and Pair with a fresh code. In terminal mode, exit normally and relaunch instead. If startup fails again, retain the local log, the operation/error/attempt from status, Windows version/build and Device Manager driver version/status. Cleanup failure means removal is unconfirmed. Do not reset pairing storage, disable Windows security, reinstall the driver or change firewall rules to hide this error.
+
+Any firewall allowance must target the installed executable, your selected UDP port, Private profile and LocalSubnet only. Setup's optional owned rule defaults to port 8765. Changing the port requires separately updating that exact rule. Public networks are unsupported.
+
+Timed out means input became neutral. The default deadline is 250 ms; a brief gap can recover within the same session, but terminal detach occurs after three seconds. Stop and Start to recover a backend fault, then use a new code. Do not treat a longer timeout as a fix for delivery delays.
+
+Stop listening before Edit settings and Reload settings. settings.ini has version=1, port=1..65535, timeout_ms=100..1000, discovery=true/false and log_level=info/debug. Use one of each key. Restore defaults explicitly by setting port=8765, timeout_ms=250, discovery=true, log_level=info. State rate is fixed at 60 Hz. Invalid files are preserved. Never delete pairing.bin to hide a storage error; preserve it and investigate access/corruption.
+
+While stopped, the tray shows the configured port after Reload. Start shows the actual listening port. Settings changes do not update firewall rules.
+
+Start with Windows is off by default and applies only to your account and this executable path. The runtime does not request administrator rights. If Windows shows a permission prompt, record its exact title, app name and wording before changing setup. Disable startup before moving a portable copy. Exit waits for neutral/detach and storage cleanup. A blocked driver may delay exit; do not force-kill it during an upgrade.
+
+Local logs are in %LOCALAPPDATA%\VirtualGamepad. Pairing codes and session secrets are not logged. Share only reviewed logs, never pairing.bin or signing credentials. Installation and signed upgrades need separate validation; unsigned review builds are not approved releases.

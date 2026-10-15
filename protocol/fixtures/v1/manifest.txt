@@ -1,0 +1,59 @@
+# file|result|type|fields (decimal integers); all IDs are synthetic test values
+hello.bin|Valid|Hello|client_nonce=72623859790382856 client_instance=1230066625199609624 state_rate=60 capabilities=7 app_build=305419896 api_level=34
+hello_ack_pending.bin|Valid|HelloAck|client_nonce=72623859790382856 server_nonce=2387509390608836392 session=0 state_rate=60 timeout_ms=250 flags=1 capacity=1 slot=255
+hello_ack_session.bin|Valid|HelloAck|client_nonce=72623859790382856 server_nonce=2387509390608836392 session=3544952156018063160 state_rate=60 timeout_ms=1000 flags=14 capacity=4 slot=3
+pair_request.bin|Valid|PairRequest|client_nonce=72623859790382856 server_nonce=2387509390608836392 client_instance=1230066625199609624 code=999999 slot=255
+pair_accept.bin|Valid|PairAccept|session=3544952156018063160 client_nonce=72623859790382856 server_instance=4702394921427289928 state_rate=60 timeout_ms=100 slot=0 capabilities=7
+pair_reject_0.bin|Valid|PairReject|client_nonce=0 reason=0 retry_after=255
+pair_reject_1.bin|Valid|PairReject|client_nonce=0 reason=1 retry_after=255
+pair_reject_2.bin|Valid|PairReject|client_nonce=0 reason=2 retry_after=255
+pair_reject_3.bin|Valid|PairReject|client_nonce=0 reason=3 retry_after=255
+pair_reject_4.bin|Valid|PairReject|client_nonce=0 reason=4 retry_after=255
+pair_reject_5.bin|Valid|PairReject|client_nonce=0 reason=5 retry_after=255
+pair_reject_6.bin|Valid|PairReject|client_nonce=0 reason=6 retry_after=255
+neutral.bin|Valid|ControllerState|session=3544952156018063160 sequence=0 client_ms=0 buttons=0 left_x=0 left_y=0 right_x=0 right_y=0 left_trigger=0 right_trigger=0
+state_one.bin|Valid|ControllerState|session=3544952156018063160 sequence=1 client_ms=0 buttons=0 left_x=0 left_y=0 right_x=0 right_y=0 left_trigger=0 right_trigger=0
+state_half_range.bin|Valid|ControllerState|session=3544952156018063160 sequence=2147483648 client_ms=0 buttons=0 left_x=0 left_y=0 right_x=0 right_y=0 left_trigger=0 right_trigger=0
+state_previous.bin|Valid|ControllerState|session=3544952156018063160 sequence=4294967295 client_ms=0 buttons=0 left_x=0 left_y=0 right_x=0 right_y=0 left_trigger=0 right_trigger=0
+wrong_session.bin|Valid|ControllerState|session=1 sequence=0 client_ms=0 buttons=0 left_x=0 left_y=0 right_x=0 right_y=0 left_trigger=0 right_trigger=0
+all_buttons_up_left.bin|Valid|ControllerState|session=3544952156018063160 sequence=0 client_ms=0 buttons=6143 left_x=0 left_y=0 right_x=0 right_y=0 left_trigger=0 right_trigger=0
+all_buttons_down_right.bin|Valid|ControllerState|session=3544952156018063160 sequence=0 client_ms=0 buttons=11263 left_x=0 left_y=0 right_x=0 right_y=0 left_trigger=0 right_trigger=0
+axis_extremes.bin|Valid|ControllerState|session=3544952156018063160 sequence=0 client_ms=0 buttons=0 left_x=-32768 left_y=32767 right_x=32767 right_y=-32768 left_trigger=0 right_trigger=255
+mixed.bin|Valid|ControllerState|session=3544952156018063160 sequence=305419896 client_ms=2271560481 buttons=9253 left_x=-12345 left_y=23456 right_x=13579 right_y=-24680 left_trigger=85 right_trigger=170
+sequence_max.bin|Valid|ControllerState|session=18446744073709551615 sequence=4294967295 client_ms=4294967295 buttons=0 left_x=0 left_y=0 right_x=0 right_y=0 left_trigger=0 right_trigger=0
+sequence_wrap.bin|Valid|ControllerState|session=18446744073709551615 sequence=0 client_ms=0 buttons=0 left_x=0 left_y=0 right_x=0 right_y=0 left_trigger=0 right_trigger=0
+status.bin|Valid|Status|session=3544952156018063160 last_sequence=4294967295 client_ms=2271560481 accepted=4294967295 rejected=305419896 lost=65535 observed_rate=65535 flags=63 timeout_ms=250
+status_presession.bin|Valid|Status|session=0 last_sequence=0 client_ms=0 accepted=0 rejected=0 lost=0 observed_rate=0 flags=0 timeout_ms=250
+disconnect_0.bin|Valid|Disconnect|session=3544952156018063160 reason=0
+disconnect_1.bin|Valid|Disconnect|session=3544952156018063160 reason=1
+disconnect_2.bin|Valid|Disconnect|session=3544952156018063160 reason=2
+disconnect_3.bin|Valid|Disconnect|session=3544952156018063160 reason=3
+disconnect_4.bin|Valid|Disconnect|session=3544952156018063160 reason=4
+bad_magic.bin|Magic|hello|byte[0]=0 crc_recomputed=True
+bad_version.bin|Version|hello|byte[2]=2 crc_recomputed=True
+bad_type.bin|MessageType|hello|byte[3]=255 crc_recomputed=True
+bad_crc.bin|Crc|hello|byte[24]=0 crc_recomputed=False
+reserved_hello.bin|Reserved|hello|byte[30]=1 crc_recomputed=True
+reserved_request.bin|Reserved|pair_request|byte[35]=1 crc_recomputed=True
+reserved_accept.bin|Reserved|pair_accept|byte[34]=1 crc_recomputed=True
+reserved_reject.bin|Reserved|pair_reject_0|byte[14]=1 crc_recomputed=True
+reserved_disconnect.bin|Reserved|disconnect_0|byte[35]=1 crc_recomputed=True
+reserved_state.bin|Reserved|neutral|byte[34]=1 crc_recomputed=True
+reserved_buttons.bin|Reserved|neutral|byte[23]=128 crc_recomputed=True
+reserved_capabilities.bin|Reserved|hello|byte[23]=128 crc_recomputed=True
+reserved_server_flags.bin|Reserved|hello_ack_pending|byte[33]=128 crc_recomputed=True
+reserved_accepted_capabilities.bin|Reserved|pair_accept|byte[33]=128 crc_recomputed=True
+reserved_status_flags.bin|Reserved|status|byte[33]=128 crc_recomputed=True
+opposing_vertical.bin|DpadConflict|all_buttons_up_left|byte[21]=31 crc_recomputed=True
+opposing_horizontal.bin|DpadConflict|all_buttons_down_right|byte[21]=63 crc_recomputed=True
+bad_code.bin|Range|pair_request|byte[31]=1 crc_recomputed=True
+bad_slot.bin|Range|pair_request|byte[32]=0 crc_recomputed=True
+bad_reason.bin|Range|pair_reject_0|byte[12]=7 crc_recomputed=True
+bad_disconnect_reason.bin|Range|disconnect_0|byte[12]=5 crc_recomputed=True
+bad_capacity.bin|Range|hello_ack_pending|byte[34]=0 crc_recomputed=True
+bad_pending_slot.bin|Range|hello_ack_pending|byte[35]=0 crc_recomputed=True
+bad_timeout.bin|Range|status|byte[35]=255 crc_recomputed=True
+length_0.bin|Length|neutral|length=0
+length_39.bin|Length|neutral|length=39
+length_41.bin|Length|neutral|length=41
+length_1024.bin|Length|neutral|length=1024

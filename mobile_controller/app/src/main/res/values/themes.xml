@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.VirtualGamepad" parent="android:Theme.Material.NoActionBar">
+        <item name="android:colorAccent">@color/foundation_background</item>
+        <item name="android:navigationBarColor">@color/foundation_background</item>
+        <item name="android:statusBarColor">@color/foundation_background</item>
+        <item name="android:windowBackground">@color/foundation_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

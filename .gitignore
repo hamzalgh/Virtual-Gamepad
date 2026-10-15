@@ -1,0 +1,50 @@
+# Android and Gradle generated files
+**/.gradle/
+**/.kotlin/
+**/build/
+**/local.properties
+**/.externalNativeBuild/
+**/.cxx/
+**/captures/
+
+# Rust generated files
+**/target/
+
+# IDE and editor local state
+.idea/
+**/.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Signing material and credentials
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+signing.properties
+keystore.properties
+
+# Local configuration and logs
+*.local.toml
+*.local.json
+config.local.*
+logs/
+**/logs/
+*.log
+
+# Windows packaging output
+dist/
+**/dist/
+packaging/output/
+installer/output/
+*.msi
+*.msix
+*.msixbundle
+*.appx
+*.appxbundle

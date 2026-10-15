@@ -1,0 +1,23 @@
+[package]
+name = "virtual-gamepad-agent"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+
+[dependencies]
+getrandom = "=0.3.4"
+mdns-sd = "=0.21.1"
+if-addrs = "=0.15.0"
+tokio = { version = "=1.53.1", features = ["rt-multi-thread", "macros", "net", "time", "sync", "signal"] }
+crc32fast = "=1.5.1"
+tracing = { version = "=0.1.44", default-features = false, features = ["std"] }
+tracing-subscriber = { version = "=0.3.23", default-features = false, features = ["fmt", "ansi"] }
+
+[target.'cfg(windows)'.dependencies]
+tray-icon = { version = "=0.25.0", default-features = false }
+vigem-client = { version = "=0.1.4", default-features = false }
+windows-sys = { version = "=0.61.2", features = ["Win32_Foundation", "Win32_Security", "Win32_Security_Authorization", "Win32_Storage_FileSystem", "Win32_UI_WindowsAndMessaging", "Win32_System_Console", "Win32_System_Threading", "Win32_System_Registry", "Win32_UI_Shell", "Win32_Graphics_Gdi", "Win32_System_LibraryLoader", "Win32_UI_Input_KeyboardAndMouse"] }
+windows = { version = "=0.62.2", features = ["Win32_Networking_NetworkListManager", "Win32_System_Com"] }
+
+[dev-dependencies]
+tokio = { version = "=1.53.1", features = ["test-util"] }

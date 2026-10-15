@@ -1,0 +1,12 @@
+# scenario|file|source|admission; every packet is valid at the codec layer
+# peer means the explicitly configured test IP and port; other changes the source port
+freshness|neutral.bin|peer|Accepted
+freshness|neutral.bin|peer|Stale
+freshness|wrong_session.bin|peer|WrongSession
+freshness|mixed.bin|other|WrongSource
+freshness|state_half_range.bin|peer|Stale
+freshness|state_one.bin|peer|Accepted
+freshness|neutral.bin|peer|Stale
+wrap|state_previous.bin|peer|Accepted
+wrap|neutral.bin|peer|Accepted
+wrap|state_previous.bin|peer|Stale

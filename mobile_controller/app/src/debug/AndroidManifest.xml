@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Explicit ADB probe, absent from release builds. -->
+    <instrumentation android:name="com.hamzalgh.virtualgamepad.debug.ConnectionProbe"
+        android:targetPackage="com.hamzalgh.virtualgamepad" android:functionalTest="true" />
+</manifest>

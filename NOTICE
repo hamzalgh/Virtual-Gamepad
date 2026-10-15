@@ -1,0 +1,15 @@
+Virtual Gamepad
+Copyright 2026 Virtual Gamepad contributors
+
+Licensed under the Apache License, Version 2.0. See LICENSE.
+The project is credited to the Virtual Gamepad contributors. This is a project
+attribution and does not identify a separate legal entity.
+
+Third-party components retain their own copyrights and licenses.
+See pc_agent/packaging/THIRD_PARTY_NOTICES.txt and
+mobile_controller/app/src/main/assets/THIRD_PARTY_NOTICES.txt.
+Distributed Windows packages place their notice file beside the executable.
+
+Community forks are distinct from maintainer-approved official releases.
+No trademark permission, official endorsement or release approval is granted
+by this notice. No automatic update channel is configured.
